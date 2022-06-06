@@ -11,6 +11,7 @@ const shopRoutes = require('./routes/shop');
 
 app.use(bodyParser.urlencoded({extended: false}));  //parser
 
+app.use(express.static(path.join(__dirname,"public"))) // to use static paths
 app.use('/admin',adminRoutes);
 app.use(shopRoutes);
 
