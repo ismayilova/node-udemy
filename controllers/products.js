@@ -18,8 +18,10 @@ exports.postAddProduct = (req, res, next)=>{
 };
 
 exports.getProducts = (req, res, next)=>{
-    const products = Product.fetchAll();
-    console.log('Shop.js ',products);
-     //    res.sendFile(path.join(rootDir,'views','shop.html'));
-    res.render('shop',{prods: products, docTitle:'Shop'}); 
+    const products = Product.fetchAll((products)=>{
+        console.log('Shop.js ',products);
+        //    res.sendFile(path.join(rootDir,'views','shop.html'));
+       res.render('shop',{prods: products, docTitle:'Shop'}); 
+    });
+    
  };
